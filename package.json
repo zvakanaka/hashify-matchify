@@ -1,0 +1,23 @@
+{
+  "name": "hashify-matchify",
+  "version": "1.0.0",
+  "description": "Salt and hash passwords using crypto",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx semistandard \"**/*[!.test].js\" --fix",
+    "test": "jest && echo \"View Report here: $(pwd)/coverage/lcov-report/index.html\"",
+    "test:watch": "jest --watchAll --coverage && echo \"View Report here: $(pwd)/coverage/lcov-report/index.html\""
+  },
+  "keywords": [],
+  "author": "Adam Quinton",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zvakanaka/hashify-matchify.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "semistandard": "^14.2.0"
+  }
+}
