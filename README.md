@@ -7,7 +7,7 @@ const { hashify, matchify } = require('hashify-matchify');
 ```
 ## Hash
 ```js
-// by default a random salt is used, but a salt may be provided as the 2nd param
+// by default a random salt is generated, but a salt may be provided as the 2nd param
 const { salt, hash, iterations } = await hashify('password');
 ```
 ## Check

@@ -21,6 +21,16 @@ test('To fail after storing and comparing a non-matching password', async () => 
   expect(pass).toBe(false);
 });
 
+test('To fail after generating two identical passwords with supposedly randomly generated salts', async () => {
+  const { salt, hash, iterations } = await hashify(TEST_PASSWORD);
+  const { salt: salt2, hash: hash2, iterations: iterations2 } = await hashify(TEST_PASSWORD);
+  const pass1 = await matchify(hash, salt, iterations, TEST_PASSWORD);
+  expect(pass1).toBe(true);
+  const pass2 = await matchify(hash2, salt2, iterations2, TEST_PASSWORD);
+  expect(pass2).toBe(true);
+  expect(salt).not.toBe(salt2);
+});
+
 test('To use custom salt (hashify)', async () => {
   const { salt, hash, iterations } = await hashify(TEST_PASSWORD, CUSTOM_SALT);
   const pass = await matchify(hash, 'different-salt', iterations, TEST_PASSWORD);
